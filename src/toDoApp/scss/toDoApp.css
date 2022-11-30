@@ -1,0 +1,179 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  background-color: #3326aa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 2rem;
+  overflow-y: scroll;
+}
+
+.container h1 {
+  color: grey;
+  text-shadow: 2px 2px 2px tomato;
+}
+
+.container .add_todo {
+  width: 400px;
+}
+
+.container .add_todo .input_todo {
+  width: 90%;
+  padding: 4px 10px;
+  border-radius: 4px;
+  outline: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container .add_todo .input_todo:focus {
+  background-color: #8cf7c5;
+}
+
+.container .add_todo .button_AddTodo {
+  display: inline-block;
+  width: 9%;
+  padding: 4px 7px;
+  text-align: center;
+  margin-left: 1px;
+  background-color: grey;
+  border: none;
+  border-radius: 3px;
+  -webkit-box-shadow: 2px 2px 2px tomato;
+          box-shadow: 2px 2px 2px tomato;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container .add_todo .button_AddTodo:hover {
+  background-color: #747171;
+  color: #591163;
+  color: antiquewhite;
+}
+
+.container .add_todo .button_AddTodo:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+}
+
+.container .lists_todo {
+  width: 400px;
+  margin-top: 3rem;
+}
+
+.container .lists_todo .lists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.container .lists_todo .lists p {
+  width: 85%;
+  background-color: #fff;
+  padding: .25rem .5rem;
+  border-radius: 5px;
+}
+
+.container .lists_todo .lists button {
+  border-radius: 5px;
+  border: none;
+  padding: 0 3px;
+  background-color: #e08216;
+  -webkit-box-shadow: 2px 2px 2px #d7f048;
+          box-shadow: 2px 2px 2px #d7f048;
+  color: white;
+}
+
+.container .lists_todo .lists button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+  color: #04ffab;
+}
+
+.container .lists_todo .button_RemoveAll {
+  display: block;
+  margin: auto;
+  border: none;
+  padding: 4px 5px;
+  border-radius: 5px;
+  color: whitesmoke;
+  background-color: #181330;
+  -webkit-box-shadow: 2px 2px 2px tomato;
+          box-shadow: 2px 2px 2px tomato;
+}
+
+.container .lists_todo .button_RemoveAll:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    background-color: #1d113b;
+  }
+  .container h1 {
+    font-size: 1.3rem;
+  }
+  .container .add_todo {
+    width: 95%;
+  }
+  .container .add_todo .input_todo {
+    width: 84%;
+    font-family: cursive;
+    font-size: 12px;
+    padding: 2px 5px;
+  }
+  .container .add_todo .button_AddTodo {
+    width: 15%;
+    font-size: 10px;
+    padding: none;
+    background-color: none;
+  }
+  .container .lists_todo {
+    width: 95%;
+    margin-top: 3rem;
+  }
+  .container .lists_todo .lists {
+    width: 100%;
+    margin-bottom: 5px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .container .lists_todo .lists p {
+    width: 85%;
+    background-color: #fff;
+    padding: .12rem .5rem;
+  }
+  .container .lists_todo .lists button {
+    background-color: #1d113b;
+    font-size: 10px;
+    padding: 0 1px;
+    margin-left: 2px;
+  }
+  .container .lists_todo .button_RemoveAll {
+    font-size: 10px;
+  }
+  .lists_todo h3 {
+    font-size: .9rem;
+  }
+}
+/*# sourceMappingURL=toDoApp.css.map */
