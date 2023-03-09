@@ -1,16 +1,13 @@
 
-import { useState, useEffect } from 'react';
-import {FaRegTrashAlt, FaPen} from "react-icons/fa";
+import { useState } from 'react';
+import { FaRegTrashAlt, FaPen } from "react-icons/fa";
 import './scss/toDoApp.css';
 
 
 
 const ToDoApp = () => {
 
-  useEffect(() => {
-    const store = localStorage.getItem('userLists');
-    setUserLists(JSON.parse(store));
-  }, [])
+ 
   const [userInput, setUserInput] = useState('');
   const [userLists, setUserLists] = useState([]);
   const [toggle, setToggle] = useState(true);
@@ -22,7 +19,7 @@ const ToDoApp = () => {
     if (!userInput) {
       alert('input field is empty');
     } else if (userInput && !toggle) {
-      setUserLists(userLists.map((elem) => {
+      setUserLists(userLists?.map((elem) => {
         if (elem.id === updateData) {
           return { ...elem, name: userInput };
         }
@@ -32,18 +29,16 @@ const ToDoApp = () => {
       setToggle(true);
     } else {
       setUserLists(() => {
-        const data = { id: new Date().getTime().toString(), name: userInput }
-        const updatedLists = [data, ...userLists];
-        localStorage.setItem('userLists', JSON.stringify(updatedLists));
-        return updatedLists;
-
+        const indv = { id: new Date().getTime().toString(), name: userInput }
+        const updatedLists = [indv, ...userLists];
+       return updatedLists;
       })
 
     }
     setUserInput('');
   }
 
-
+console.log(userLists)
   // update todo_lists function starts here----------->
   const upDateTodo = (id) => {
     const findData = userLists.find((item) => {
@@ -62,7 +57,7 @@ const ToDoApp = () => {
 
     const updatedLists = userLists.filter((lists) => lists.id !== id);
     setUserLists(updatedLists);
-    localStorage.setItem('userLists', JSON.stringify(updatedLists));
+   
 
   }
 
@@ -72,7 +67,7 @@ const ToDoApp = () => {
     alert('Are you sure to remove all the lists')
 
     setUserLists([])
-    localStorage.setItem('userLists', '[]');
+    
   }
 
 
@@ -89,16 +84,16 @@ const ToDoApp = () => {
         <button className="button_AddTodo" onClick={addTodo}>Add</button>
 
       </div>
-        
+
       {/* toDo lists */}
       <div className="lists_todo">
-        {userLists.length >= 1 ? (<h3 style={{ color: 'white', marginBottom: '.25rem' }}>My lists:-</h3>) : ''}
+        {userLists?.length >= 1 ? (<h3 style={{ color: 'white', marginBottom: '.25rem' }}>My lists:-</h3>) : ''}
 
-        {userLists.map((lists) => {
+        {userLists?.map((lists) => {
           return (
             <>
               <div className="lists" key={lists.id}>
-                <p>{lists.name}</p><button onClick={() => upDateTodo(lists.id)} className="button_upDateTodo"><FaPen/></button><button onClick={() => removeToDo(lists.id)} className="button_RemoveTodo"><FaRegTrashAlt/></button>
+                <p>{lists.name}</p><button onClick={() => upDateTodo(lists.id)} className="button_upDateTodo"><FaPen /></button><button onClick={() => removeToDo(lists.id)} className="button_RemoveTodo"><FaRegTrashAlt /></button>
               </div>
             </>
           )
@@ -106,7 +101,7 @@ const ToDoApp = () => {
 
         {/* remove all button and its functionality */}
 
-        {userLists.length > 1 ? (<button className="button_RemoveAll" onClick={removeAll}>Remove All</button>) : ''}
+        {userLists?.length > 1 ? (<button className="button_RemoveAll" onClick={removeAll}>Remove All</button>) : ''}
 
 
       </div>
